@@ -50,7 +50,7 @@ async def private_receive_handler(c: Client, m: Message):
     if MY_PASS:
         check_pass = await pass_db.get_user_pass(m.chat.id)
         if check_pass== None:
-            await m.reply_text("Login first using /login cmd \nDon't know the password contact @ArjunVR_AVR")
+            await m.reply_text("Login first using /login cmd \nDon't know the password contact @BinLate")
             return
         if check_pass != MY_PASS:
             await pass_db.delete_user(m.chat.id)
@@ -74,11 +74,11 @@ async def private_receive_handler(c: Client, m: Message):
         except UserNotParticipant:
             await c.send_message(
                 chat_id=m.chat.id,
-                text="""<i>ᴊᴏɪɴ ᴍʏ ᴜᴘᴅᴀᴛᴇs ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴜsᴇ ᴍᴇ..**</i>""",
+                text="""Tham gia Channel de su dung Bot..**\n\n**Chi thanh vien trong Channel moi duoc su dung Bot lay link download file telegram nay..!""",
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton("ᴊᴏɪɴ ɴᴏᴡ", url=f"https://t.me/{Var.UPDATES_CHANNEL}")
+                            InlineKeyboardButton("Tham gia Channel Telegram", url=f"https://t.me/{Var.UPDATES_CHANNEL}")
                         ]
                     ]
                 )
@@ -98,32 +98,32 @@ async def private_receive_handler(c: Client, m: Message):
         
         online_link = f"{Var.URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
         
-        photo_xr="https://telegra.ph/file/3cd15a67ad7234c2945e7.jpg"
+        photo_xr="https://telegra.ph/file/b9e78db647e3ab01b0753.png"
         
         
 
         msg_text ="""
-<b>ʏᴏᴜʀ ʟɪɴᴋ ɪs ɢᴇɴᴇʀᴀᴛᴇᴅ...⚡
+<b>FILE CUA BAN DA SAN SANG...⚡
 
-<b>📧 ғɪʟᴇ ɴᴀᴍᴇ :- </b> <i><b>{}</b></i>
+<b>📧 FILE NAME :- </b> <i><b>{}</b></i>
 
-<b>📦 ғɪʟᴇ sɪᴢᴇ :- </b> <i><b>{}</b></i>
+<b>📦 FILE SIZE :- </b> <i><b>{}</b></i>
 
-<b>💌 ᴅᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ :- </b> <i><b>{}</b></i>
+<b>💌 LINK DOWNLOAD :- </b> <i><b>{}</b></i>
 
-<b>🖥 ᴡᴀᴛᴄʜ ᴏɴʟɪɴᴇ :- </b> <i><b>{}</b></i>
+<b>🖥 XEM ONLINE :- </b> <i><b>{}</b></i>
 
-<b>♻️ ᴛʜɪs ʟɪɴᴋ ɪs ᴘᴇʀᴍᴀɴᴇɴᴛ ᴀɴᴅ ᴡᴏɴ'ᴛ ɢᴇᴛs ᴇxᴘɪʀᴇᴅ ♻️\n\n❖ YouTube.com/OpusTechz</b>"""
+<b>♻️ BETA TEST ♻️\n\n❖ Https://muabanquyen.com</b>"""
 
-        await log_msg.reply_text(text=f"**RᴇQᴜᴇꜱᴛᴇᴅ ʙʏ :** [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n**Uꜱᴇʀ ɪᴅ :** `{m.from_user.id}`\n**Stream ʟɪɴᴋ :** {stream_link}", disable_web_page_preview=True, quote=True)
+        await log_msg.reply_text(text=f"**UPLOAD BOI :** [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n**USER ID :** `{m.from_user.id}`\n**STREAM LINK :** {stream_link}", disable_web_page_preview=True, quote=True)
         await m.reply_text(
             
             text=msg_text.format(get_name(log_msg), humanbytes(get_media_file_size(m)), online_link, stream_link),
             
             quote=True,
             disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("⚡ ᴡᴀᴛᴄʜ ⚡", url=stream_link), #Stream Link
-                                                InlineKeyboardButton('⚡ ᴅᴏᴡɴʟᴏᴀᴅ ⚡', url=online_link)]]) #Download Link
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("⚡ XEM ONLINE ⚡", url=stream_link), #Stream Link
+                                                InlineKeyboardButton('⚡ DOWNLOAD ⚡', url=online_link)]]) #Download Link
         )
     except FloodWait as e:
         print(f"Sleeping for {str(e.x)}s")
